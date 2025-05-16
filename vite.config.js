@@ -15,7 +15,10 @@ export default defineConfig({
         main: path.resolve(__dirname, 'index.html'),
       },
       output: {
-        assetFileNames: 'assets/[name]-[hash][extname]',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'assets/[name]-[hash][extname]';
+          return 'assets/[name]-[hash][extname]';
+        },
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
       },
@@ -25,5 +28,9 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  server: {
+    port: 3000,
+    open: true,
   },
 })

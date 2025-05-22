@@ -338,7 +338,7 @@ function ProjectsSection() {
 function ResumeSection() {
   const handleDownload = () => {
     // The PDF file should be placed in the public/resume folder
-    window.open('/resume/resume.pdf', '_blank')
+    window.open('/portfolio/resume/resume.pdf', '_blank')
   }
 
   return (

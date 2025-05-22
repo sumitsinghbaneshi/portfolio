@@ -336,9 +336,10 @@ function ProjectsSection() {
 
 // Resume Section Component
 function ResumeSection() {
-  const handleDownload = () => {
-    // The PDF file should be placed in the public/resume folder
-    window.open('https://sumitsinghbaneshi.github.io/portfolio/resume/resume.pdf', '_blank')
+  const handleDownload = (e) => {
+    e.preventDefault();
+    const resumeUrl = 'https://sumitsinghbaneshi.github.io/portfolio/resume/resume.pdf';
+    window.location.href = resumeUrl;
   }
 
   return (
@@ -358,14 +359,17 @@ function ResumeSection() {
             education, certifications, and technical skills in cybersecurity and web development.
           </p>
           
-          <motion.button 
+          <motion.a 
+            href="https://sumitsinghbaneshi.github.io/portfolio/resume/resume.pdf"
             className="download-btn"
             onClick={handleDownload}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Download Resume (PDF)
-          </motion.button>
+          </motion.a>
         </div>
         
         <div className="resume-highlights">
